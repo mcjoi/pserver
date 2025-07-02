@@ -16,7 +16,7 @@ def add(data: Input):
     return {"result": data.x + data.y}
 
 @app.post("/multi")
-def add(data: Input):
+def multi(data: Input):
     return {"result": data.x * data.y}
 
 
