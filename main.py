@@ -14,3 +14,8 @@ class Input(BaseModel):
 @app.post("/add")
 def add(data: Input):
     return {"result": data.x + data.y}
+
+
+@app.get("/hello")
+def hello():
+    return {"message": "Hello, this is a new function!"}
