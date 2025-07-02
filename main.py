@@ -3,10 +3,14 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class InputData(BaseModel):
+@app.get("/")
+def read_root():
+    return {"message": "API server is running!"}
+
+class Input(BaseModel):
     x: int
     y: int
 
 @app.post("/add")
-def add_numbers(data: InputData):
+def add(data: Input):
     return {"result": data.x + data.y}
