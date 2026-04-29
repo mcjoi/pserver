@@ -5,6 +5,18 @@ import pandas as pd
 import tempfile
 import os
 from io import BytesIO
+from fastapi.middleware.cors import CORSMiddleware
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://<your-github-pages-domain>"],
+    allow_credentials=False,
+    allow_methods=["POST"],
+    allow_headers=["*"],
+)
+
+
 
 app = FastAPI()
 
@@ -43,3 +55,8 @@ async def pdf_to_excel(file: UploadFile = File(...)):
 
     finally:
         os.remove(tmp_path)
+
+
+
+
+
